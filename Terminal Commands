@@ -1,0 +1,51 @@
+Step 1: To install rosserial on ROS Melodic, type the below command
+sudo apt-get install ros-melodic-rosserial
+
+First, create a new folder in your ROS workspace and name it rosseiral_ws for example.
+
+Create another folder inside named src
+
+mkdir -p ~/rosserial_ws/src
+
+Move to your src folder
+
+cd ~/rosserial_ws/src
+
+Step 2: Clone the source code in this directory
+
+git clone https://github.com/ros-drivers/rosserial.git
+
+When the clone is complete, we need to build the package in the workspace. Go back to the main folder
+
+cd ~/rosserial_ws
+
+Then type this command. It will build the package creating build and devel folders
+
+catkin_make
+
+Step 3: To introduce the installed package to ROS, use the following
+
+source ~/rosserial_ws/devel/setup.bash
+
+Step 4 : Now you need to install Teleop by typing below command
+
+sudo apt-get install ros-melodic-teleop-twist-keyboard
+
+
+Step 5: Now you need to upload the DC Motor Control Arduino Code to Arduino
+
+
+Step 6:  To run the code, open cmd window and type (DO NOT CLOSE THE TERMINAL)
+
+roscore
+
+Step 7: To run rosserial client that passes the messages from Arduino to ROS (DO NOT CLOSE THE TERMINAL)
+
+rosrun rosserial_python serial_node.py /dev/ttyACM0
+
+
+Step 8: Now open the Teleop package from the terminal using the below command (DO NOT CLOSE THE TERMINAL)
+
+
+rosrun teleop_twist_keyboard teleop_twist_keyboard.py
+
